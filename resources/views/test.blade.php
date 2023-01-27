@@ -153,13 +153,13 @@
        <div class="header">
 
             <div>
-                <b>Noms et Prénoms :</b> {{$etudiant->nom}} {{$etudiant->prenom}}
-                <b id="Matricule">Matricule :</b>{{$etudiant->matricule}}
+                <b>Noms et Prénoms :</b> {{$data['etudiant']->nom}} {{$data['etudiant']->prenom}}
+                <b id="Matricule">Matricule :</b>{{$data['etudiant']->matricule}}
                 <br><i>Surname and Name : </i><i id="Matricule1">Registration N°:</i></p>
             </div>
             <div>
-                <b>Né(e) le :</b>  {{$etudiant->datenaiss}}
-                <b id="Matricule">A : </b> {{$etudiant->lieu}}
+                <b>Né(e) le :</b>   {{$data['etudiant']->datenaiss}}
+                <b id="Matricule">A : </b>  {{$data['etudiant']->lieu}}
                 <br><i>Born on : </i><i id="Matricule3">At:</i></p>
             </div>
             <div>
@@ -168,7 +168,7 @@
             </div>
             <div>
                 <b>Niveau :</b> LICENCE 1
-                <b id="Matricule4">Fillière :</b> INFORMATION AND COMMUNICATION TECHNOLOGY FOR DEVELOPEMENT
+                <b id="Matricule4">Fillière :</b> {{$data['inscription']->filiere->intitulefiliere}}
                 <br><i>Level : </i><i id="Matricule5">Discipline :</i></p>
             </div>
             <div>
