@@ -19,13 +19,13 @@ class EvaluationSeeder extends Seeder
     {$faker=Faker::create();
         DB::table('evaluations')->insert([
             'dateExam'=>'25/06/2023',
-            'notesur'=>20,
+            'notesur'=>50,
             'typeExam'=>'Rattrapage',
             'session_id'=>1,]);
         $faker=Faker::create();
         DB::table('evaluations')->insert([
             'dateExam'=>'21/05/2022',
-            'notesur'=>20,
+            'notesur'=>30,
             'typeExam'=>'Normal',
             'session_id'=>2,]);
         $faker=Faker::create();

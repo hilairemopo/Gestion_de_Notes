@@ -17,9 +17,11 @@ class DatabaseSeeder extends Seeder
             UeSeeder::class,
             DepatementSeeder::class,
             NiveauxSeeder::class,
-            FiliereSeeder::class,
 
             SpecialiteSeeder::class,
+            FiliereSeeder::class,
+
+
             AnneAcademiqueSeeder::class,
             UeSeeder::class,
             SessionSeeder::class,

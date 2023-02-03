@@ -18,12 +18,14 @@ class ParticipationSeeder extends Seeder
         $inscriptions=DB::table('inscriptions')->where('anneacademique_id','=',$anneeEncours->id)->get();
         foreach ($inscriptions as $key=>$inscription){
             $eusId=DB::table('uedans_filieres')->where('filiere_id','=',$inscription->filiere_id)->get();
+
             foreach ($eusId as $key=>$item){
                 $ev=DB::table('evaluations')->where('session_id','=',$item->session_id
                 )->first();
+
                 if($ev){
                     DB:: table('participations')->insert([
-                        'notesur'=>random_int(0,$ev->notesur),
+                        'notesur'=>random_int(20,$ev->notesur),
                         'etudiant_id'=>$inscription->id,
                         'ue_id'=>$item->ue_id,
                         'evaluation_id'=>$ev->id,

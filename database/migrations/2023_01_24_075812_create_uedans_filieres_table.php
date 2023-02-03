@@ -14,7 +14,7 @@ class CreateUedansFilieresTable extends Migration
     public function up()
     {
         Schema::create('uedans_filieres', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('niveau_id')->unsigned();
             $table->foreign('niveau_id')->references('id')->on('niveaux');
             $table->integer('session_id')->unsigned();

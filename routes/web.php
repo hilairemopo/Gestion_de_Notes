@@ -21,5 +21,5 @@ Route::get('/', function () {
 /*Route::get('/test',function(){
     return view('test');
 });*/
-Route::get('/test/{anneeId}/{matricule}',[ReleveNoteController::class,'tests']);
+Route::get('/test/{anneeId}/{sessionId}/{matricule}',[ReleveNoteController::class,'tests']);
 

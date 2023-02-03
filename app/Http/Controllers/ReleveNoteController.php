@@ -10,9 +10,11 @@ class ReleveNoteController extends Controller
 {
     public function tests(Request  $request)
     {
+         $request->sessionId;
 
-        $data=Etudiant::getReleve($request->anneeId,$request->matricule);
+    $data=Etudiant::getReleve($request->anneeId,$request->sessionId,$request->matricule);
 
+      //dd($notes->matiere->nbrecredit);
 
         return view('test',['data'=>$data]);
     }

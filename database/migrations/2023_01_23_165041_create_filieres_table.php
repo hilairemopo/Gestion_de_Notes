@@ -19,6 +19,8 @@ class CreateFilieresTable extends Migration
             $table->string('descriptionfiliere');
             $table->integer('departement_id')->unsigned();
             $table->foreign('departement_id')->references('id')->on('departements');
+            $table->integer('specialite_id')->unsigned();
+            $table->foreign('specialite_id')->references('id')->on('specialites');
             $table->timestamps();
         });
     }

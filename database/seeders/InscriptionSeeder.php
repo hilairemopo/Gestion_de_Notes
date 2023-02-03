@@ -23,8 +23,8 @@ class InscriptionSeeder extends Seeder
 
             DB::table('inscriptions')->insert([
                 'anneacademique_id'=>1,
-                'filiere_id'=>$faker->randomElement($filiers),
-                'niveau_id'=>$faker->randomElement($niveaux),
+                'filiere_id'=>1,
+                'niveau_id'=>3,
                 'etudiant_id'=>$etudiant->id]);
         }
 

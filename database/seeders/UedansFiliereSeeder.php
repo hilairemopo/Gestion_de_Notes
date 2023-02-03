@@ -17,42 +17,59 @@ class UedansFiliereSeeder extends Seeder
     {
         $faker = Faker::create();
         $ues= DB::table('ues')->get()->pluck('id');
-        $filiere = DB::table('filieres')->get()->pluck('id');
-
-                DB::table('uedans_filieres')->insert([
-                    'niveau_id' => 3,
-                    'session_id' => 3,
-                    'filiere_id' => $faker->randomElement($filiere) ,
-                    'ue_id'=>$faker->randomElement($ues),
+        //$filiere = DB::table('filieres')->get()->pluck('id');
+                foreach ($ues as $ue){
+                    DB::table('uedans_filieres')->insert([
+                        'niveau_id' => 3,
+                        'session_id' => 1,
+                        'filiere_id' => 1 ,
+                        'ue_id'=>$ue,
                     ]);
+                    DB::table('uedans_filieres')->insert([
+                        'niveau_id' => 3,
+                        'session_id' => 2,
+                        'filiere_id' => 1 ,
+                        'ue_id'=>$ue,
+                    ]);
+                    /*
+                    DB::table('uedans_filieres')->insert([
+                        'niveau_id' => 3,
+                        'session_id' => 3,
+                        'filiere_id' => 1 ,
+                        'ue_id'=>$ue,
+                    ]);*/
+                }
 
-        DB::table('uedans_filieres')->insert([
-            'niveau_id' => 1,
-            'session_id' => 2,
-            'filiere_id' => $faker->randomElement($filiere) ,
-            'ue_id'=>$faker->randomElement($ues),
-        ]);
 
-        DB::table('uedans_filieres')->insert([
-            'niveau_id' => 2,
-            'session_id' => 1,
-            'filiere_id' => $faker->randomElement($filiere) ,
-            'ue_id'=>$faker->randomElement($ues),
-        ]);
+   /**
+    *      DB::table('uedans_filieres')->insert([
+   'niveau_id' => 1,
+   'session_id' => 2,
+   'filiere_id' => $faker->randomElement($filiere) ,
+   'ue_id'=>$faker->randomElement($ues),
+   ]);
 
-        DB::table('uedans_filieres')->insert([
-            'niveau_id' => 2,
-            'session_id' => 3,
-            'filiere_id' => $faker->randomElement($filiere) ,
-            'ue_id'=>$faker->randomElement($ues),
-        ]);
+   DB::table('uedans_filieres')->insert([
+   'niveau_id' => 2,
+   'session_id' => 1,
+   'filiere_id' => $faker->randomElement($filiere) ,
+   'ue_id'=>$faker->randomElement($ues),
+   ]);
 
-        DB::table('uedans_filieres')->insert([
-            'niveau_id' => 1,
-            'session_id' => 2,
-            'filiere_id' => $faker->randomElement($filiere) ,
-            'ue_id'=>$faker->randomElement($ues),
-        ]);
+   DB::table('uedans_filieres')->insert([
+   'niveau_id' => 2,
+   'session_id' => 3,
+   'filiere_id' => $faker->randomElement($filiere) ,
+   'ue_id'=>$faker->randomElement($ues),
+   ]);
+
+   DB::table('uedans_filieres')->insert([
+   'niveau_id' => 1,
+   'session_id' => 2,
+   'filiere_id' => $faker->randomElement($filiere) ,
+   'ue_id'=>$faker->randomElement($ues),
+   ]);
+    */
     }
 
         }

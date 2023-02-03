@@ -24,7 +24,7 @@
         background-color: #f2f2f2;
       }
       .logo{
-          padding-left:5%;
+          padding-left:09%;
           padding-right: 3%;
           width: 15%;
       }
@@ -80,8 +80,7 @@
           padding-left: 18%;
       }
       #Matricule2{
-          padding-left: 50%;
-      }
+          padding-left: 45%      }
       #Matricule7{
           padding-left: 63%;
       }
@@ -128,7 +127,7 @@
                     <h3>UNIVERSITE DE YAOUNDE I</h3>
                 </p>
             </div>
-            <img class="logo" src="/logo.jpg" alt="Logo">
+            <img class="logo" src="/img/t.jpg" alt="Logo">
             <div class="rebDroite">
                 <p>
                     <h3>REPUBLIC OF CAMEROON</h3>
@@ -163,17 +162,17 @@
                 <br><i>Born on : </i><i id="Matricule3">At:</i></p>
             </div>
             <div>
-                <b>Domaine</b> :</b> SCIENCES MATHEMATIQUES ET INFORMATIQUES
+                <b>Domaine</b> :</b> {{$data['inscription']->filiere->departement->nomdepartement}}
                 <br><i>Domain : </i>
             </div>
             <div>
-                <b>Niveau :</b> LICENCE 1
+                <b>Niveau :</b> {{$data['inscription']->niveau->niveau}}
                 <b id="Matricule4">Fillière :</b> {{$data['inscription']->filiere->intitulefiliere}}
                 <br><i>Level : </i><i id="Matricule5">Discipline :</i></p>
             </div>
             <div>
-                <b>Spécialité :</b> LICENCE 1
-                <b id="Matricule2">Année Academique :</b> 2020/2021
+                <b>Spécialité :</b> {{$data['inscription']->filiere->specialite->nomspecialite}}
+                <b id="Matricule2">Année Academique :</b> {{$data['inscription']->anneAcademique->annee}}
                 <br><i>Option : </i><i id="Matricule7"> Academic Year :</i></p>
             </div>
        </div>
@@ -188,121 +187,21 @@
         <th id="tabs">Année  <br>Year</th>
         <th id="tabs">Décision <br> Decision</th>
       </tr>
-      <tr>
-        <td id="tabs">FRAN104</td>
-        <td>FRANÇAIS 1 /</td>
-        <td>3</td>
-        <td>86,00</td>
-        <td id="tabs">A</td>
-        <td id="tabs">4</td>
-        <td id="tabs">2021</td>
-        <td>CA</td>
-      </tr>
-      <tr>
-        <td id="tabs">ICT101</td>
-        <td>INTRODUCTION TO BUSINESS INFORMATION SYSTEMS /</td>
-        <td>5</td>
-        <td>61,88</td>
-        <td id="tabs">B-</td>
-        <td id="tabs">1</td>
-        <td id="tabs">2021</td>
-        <td>CA</td>
-      </tr>
-      <tr>
-        <td id="tabs">ICT102</td>
-        <td>OBJECT-ORIENTED PROGRAMMING /</td>
-        <td>5</td>
-        <td id="tabs">68,00</td>
-        <td id="tabs">B</td>
-        <td id="tabs">4</td>
-        <td>2021</td>
-        <td>CA</td>
-      </tr>
-      <tr>
-        <td id="tabs">ICT103</td>
-        <td>INTRODUCTION TO PROGRAMMING /</td>
-        <td>5</td>
-        <td id="tabs">51,75</td>
-        <td id="tabs">C</td>
-        <td id="tabs">1</td>
-        <td>2021</td>
-        <td>CA</td>
-      </tr>
-      <tr>
-        <td id="tabs">ICT104</td>
-        <td>COMPUTER SYSTEMS /</td>
-        <td>6</td>
-        <td id="tabs">85,25</td>
-        <td id="tabs">A</td>
-        <td id="tabs">4</td>
-        <td>2021</td>
-        <td>CA</td>
-      </tr>
-      <tr>
-        <td id="tabs">ICT105</td>
-        <td>INTRODUCTION TO ALGORITHMS /</td>
-        <td>5</td>
-        <td id="tabs">57,75</td>
-        <td id="tabs">C+</td>
-        <td id="tabs">1</td>
-        <td>2021</td>
-        <td>CA</td>
-      </tr>
-      <tr>
-        <td id="tabs">ICT106</td>
-        <td>DATA STRUCTURES AND PATTERNS 1 /</td>
-        <td>5</td>
-        <td id="tabs">82,36</td>
-        <td id="tabs">A</td>
-        <td id="tabs">4</td>
-        <td>2021</td>
-        <td>CA</td>
-      </tr>
-      <tr>
-        <td id="tabs">ICT107</td>
-        <td>MATHEMATICS FOR COMPUTER SCIENCE 1 /</td>
-        <td>5</td>
-        <td id="tabs">49,50</td>
-        <td id="tabs">C-</td>
-        <td id="tabs">1</td>
-        <td>2021</td>
-        <td>CANT</td>
-      </tr>
-      <tr>
-        <td id="tabs">ICT108</td>
-        <td>CREATING WEB APPLICATIONS /</td>
-        <td>6</td>
-        <td id="tabs">62,63</td>
-        <td id="tabs">B-</td>
-        <td id="tabs">4</td>
-        <td>2021</td>
-        <td>CA</td>
-      </tr>
-      <tr>
-        <td id="tabs">ICT109</td>
-        <td>DISCRETE MATHEMATICS 1 /</td>
-        <td>CA</td>
-      </tr>
-      <tr>
-        <td id="tabs">ICT110</td>
-        <td>DATABASE ANALYSIS AND DESIGN /</td>
-        <td>5</td>
-        <td id="tabs">59,50</td>
-        <td id="tabs">C+</td>
-        <td id="tabs">4</td>
-        <td>2021</td>
-        <td>CA</td>
-      </tr>
-      <tr>
-        <td id="tabs">ICT111</td>
-        <td>COMPUTER AND LOGIC ESSENTIALS /</td>
-        <td>5</td>
-        <td id="tabs">69,75</td>
-        <td id="tabs">B</td>
-        <td id="tabs">3</td>
-        <td>2021</td>
-        <td>CA</td>
-      </tr>
+        @foreach( $data['notes'] as $note)
+            <tr>
+
+                <td id="tabs">{{$note->matiere?$note->matiere->codeue:"--"}}</td>
+                <td>{{$note->matiere?$note->matiere->intituleue:"--"}}/</td>
+                <td>{{$note->matiere?$note->matiere->nbrecredit:"--"}}</td>
+                <td>{{ $note->participation->notesur}}</td>
+                <td id="tabs">{{ $note->mention}}</td>
+                <td id="tabs">{{ $note->ue->session_id}}</td>
+                <td id="tabs">2021</td>
+                <td>{{ $note->decision}}</td>
+            </tr>
+
+
+        @endforeach
     </table>
     <div id="legend">
       <div>
@@ -315,15 +214,17 @@
         </i>
         </div>
       </div>
+
       <div id="legend1">
-        Crédits Capitalisés : <b>60 </b>/60 (<b>100,00 %</b>)<br>
-        Moyenne Générale Pondérée (MGP): <b>2,81</b> /4 <br>
-        Décision : <b>ADMIS</b>
+        Crédits Capitalisés : <b>{{$data['credit']->cca}} </b>/{{$data['credit']->totalCredit}} (<b>{{$data['credit']->pourcentage}} %</b>)<br>
+        Moyenne Générale Pondérée (MGP): <b>{{$data['mgp_decision']->mgp}}</b> /4 <br>
+        Décision : <b>{{$data['mgp_decision']->decision}}</b>
       </div>
     </div>
+
     <table class="small-table">
       <tr>
-        <th id="tabs">Note7 <br>100</th>
+        <th id="tabs">Notesur <br>100</th>
         <th id="tabs">Cote</th>
         <th id="tabs">Qualité de <br>points</th>
         <th id="tabs">Mention</th>
@@ -404,11 +305,14 @@
   </section>
   <footer>
    <div  id="legend">
-    <div>
-      <img id="legend2" src="/Signature du chef de departement.png" alt="Signature">
+    <div id="legend2" >
+     <em> Le president du jury <br> The president of the jury</em>
     </div>
     <div id="legend1">
-      <img  id="legend2" src="/Signature du president du jury.png" alt="Signature">
+   <em>  Yaounde,le ..............  <br>Le Chef de Departement   <br>The Head of Department</em>
+
+
+
     </div>
    </div>
    <div id="last">

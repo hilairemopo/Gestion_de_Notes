@@ -15,7 +15,10 @@ class SpecialiteSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+        DB::table('specialites')->insert([
+            'nomspecialite'=>'Genie Informatique',
+            'descriptionspecialite'=>'Genie Informatique',
+        ]);
         DB::table('specialites')->insert([
         'nomspecialite'=>'MAT',
             'descriptionspecialite'=>'Matematique',
