@@ -21,5 +21,16 @@ Route::get('/', function () {
 /*Route::get('/test',function(){
     return view('test');
 });*/
-Route::get('/test/{anneeId}/{sessionId}/{matricule}',[ReleveNoteController::class,'tests']);
+Route::get('/test/{anneeId}/{sessionId}/{matricule}',[ReleveNoteController::class,'tests'])->name("tests");
+
+Route::get('/releve
+', function () {
+    return view('pages.releve');
+});
+
+
+
+Route::get('/releve1',[\App\Http\Controllers\ReLevController::class,'trait']);
+
+Route::get('/form_releve',[\App\Http\Controllers\ReLevController::class,'traitForm']);
 
