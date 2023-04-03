@@ -127,7 +127,7 @@
                     <h3>UNIVERSITE DE YAOUNDE I</h3>
                 </p>
             </div>
-            <img class="logo" src="/img/t.jpg" alt="Logo">
+            <img class="logo" src="/img/logo.jpg" alt="Logo">
             <div class="rebDroite">
                 <p>
                     <h3>REPUBLIC OF CAMEROON</h3>

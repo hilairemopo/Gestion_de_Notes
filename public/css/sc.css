@@ -1,0 +1,125 @@
+
+      body{
+         image-resolution: 100%;
+
+          width: 29.7cm;
+          height: 22cm;
+          margin: 2cm;
+          margin-top: 2cm;
+      }
+      .demo-wrap{
+      opacity: 0.09;
+      position: absolute;
+      width: 87%;
+      margin-top: "0%";
+      }
+      .duplicata{
+          position: relative;
+          left: 1020px;
+          top: -970px;
+      }
+      .fisrt{
+          position: relative;
+          right: 150px;
+      }
+      .logo{
+          padding-left:5%;
+          padding-right: 3%;
+          width: 5%;
+      }
+
+      .intro{
+        padding-left: 21.9%;
+        font-size: 150%;
+      }
+      .intro1{
+        padding-left: 5%;
+        font-size: 150%;
+      }
+      .intro2{
+        padding-left: 20%;
+        font-size: 150%;
+      }
+      .intro3{
+        margin-left: 48%;
+        font-size: 120%;
+      }
+      .intro4{
+        margin-left: 40%;
+        font-size: 120%;
+      }
+      .header{
+        font-size: 101%;
+      }
+      .rebGauche{
+          text-align: center;
+          font-size: 125%;
+      }
+      .rebDroite{
+          text-align: center;
+          font-size: 125%;
+      }
+      .headerFlex{
+          display:flex;
+          align-items: center;
+      }
+      #Matricule{
+
+          padding-left: 29%;
+      }
+      #Matricule1{
+          padding-left: 56%;
+      }
+      #Matricule2{
+        padding-left: 5%;
+    }
+      #Matricule3{
+          padding-left: 38.4%;
+      }
+      #Matricule4{
+          padding-left: 6.5%;
+
+      }
+      #Matricule5{
+          padding-left: 18%;
+          position: relative;
+          right: 250px;
+      }
+      #Matricule6{
+        padding-left: 40.5%;
+    }
+
+      #Matricule7{
+          padding-left: 8%;
+      }
+      #Matricule8{
+        padding-left: 13%;
+          position: relative;
+          right: 100px;
+    }
+
+      #legend{
+        display: flex;
+        align-items: center;
+        margin-left: 10%;
+        margin-top: 5%;
+        padding-bottom: 5%;
+      }
+      #legend2{
+        width: 400px;
+      }
+      #legend3{
+        width: 1700px;
+      }
+      #last{
+        text-align: center;
+        font-size: large;
+      }
+      #last1{
+        text-align: left;
+      }
+      #double{
+        display: flexbox;
+        position: relative;
+        justify-content: center;
+      }

@@ -26,6 +26,7 @@ class ParticipationSeeder extends Seeder
                 if($ev){
                     DB:: table('participations')->insert([
                         'notesur'=>random_int(20,$ev->notesur),
+
                         'etudiant_id'=>$inscription->id,
                         'ue_id'=>$item->ue_id,
                         'evaluation_id'=>$ev->id,

@@ -16,6 +16,7 @@ class CreateParticipationsTable extends Migration
         Schema::create('participations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('notesur');
+            $table->integer('rattrapages')->nullable();
             $table->integer('etudiant_id')->unsigned();
             $table->foreign('etudiant_id')->references('id')->on('etudiants');
             $table->integer('ue_id')->unsigned();

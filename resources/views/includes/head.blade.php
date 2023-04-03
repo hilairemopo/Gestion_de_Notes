@@ -28,6 +28,7 @@
 
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/stylecertif.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 

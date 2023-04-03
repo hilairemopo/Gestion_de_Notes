@@ -13,6 +13,8 @@ class ReLevController extends Controller
         $annee= DB::table('anneacademiques')->get();
         $semestre=DB::table('sessions')->get();
 
+
+
        return view("pages.releve1",['annee'=>$annee,'semestre'=>$semestre]);
     }
 

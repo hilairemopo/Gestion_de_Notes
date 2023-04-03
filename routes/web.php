@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ReleveNoteController;
 use Illuminate\Support\Facades\Route;
+use PHPJasper\PHPJasper;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +29,38 @@ Route::get('/releve
 ', function () {
     return view('pages.releve');
 });
-
+Route::get('/certificat
+', function () {
+    return view('pages.cerscolarite');
+});
 
 
 Route::get('/releve1',[\App\Http\Controllers\ReLevController::class,'trait']);
 
 Route::get('/form_releve',[\App\Http\Controllers\ReLevController::class,'traitForm']);
 
+Route::get('/formulaire',[\App\Http\Controllers\forminsertController::class,'inser']);
+Route::post('/create',[\App\Http\Controllers\forminsertController::class,'create']);
+
+Route::get('/insertion',[\App\Http\Controllers\forminsertController::class,'inscription']);
+Route::get('/form_inscription/{id}',[\App\Http\Controllers\forminsertController::class,'traiteForm']);
+//Route::get('/formInsertion',[\App\Http\Controllers\forminsertController::class,'traiteForm']);
+Route::post('/created',[\App\Http\Controllers\forminsertController::class,'crea']);
+
+
+Route::get('/java', function () {
+
+    $input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world.jasper';
+    $output = __DIR__ . '/vendor/geekcom/phpjasper/examples';
+    $options = [
+        'format' => ['pdf', 'rtf']
+    ];
+
+    $jasper = new PHPJasper;
+
+    $jasper->process(
+        $input,
+        $output,
+        $options
+    )->execute();
+});
