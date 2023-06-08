@@ -15,8 +15,9 @@
             <th>Action</th>
         </tr>
         </thead>
-        @foreach($students as $student)
+
         <tbody style="color:#FFFFFF">
+        @foreach($students as $student)
         <tr>
 
             <td>{{$student->matricule}}</td>
@@ -27,14 +28,26 @@
             <td>{{$student->sex}}</td>
             <td>
 
+                @if($student->isInscrit)
 
-                <a href="{{ url('form_inscription',$student-> id) }}"class=" bouton-poster col m2 btn grey darken-2 white-text">Inscrivez</a>
+                    <a   href="#" class=" bouton-poster col m2 btn grey darken-2 text-success" >
 
+                        Inscrit
+                    </a>
+
+                @else
+
+                    <a   href="{{ url('form_inscription',$student-> id) }}"class=" bouton-poster col m2 btn grey darken-2 text-danger" >
+                        Non Inscrit
+                    </a>
+                @endif
             </td>
 
         </tr>
-        </tbody>
         @endforeach
+        </tbody>
+
+
     </table>
 
     </div>

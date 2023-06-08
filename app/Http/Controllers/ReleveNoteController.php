@@ -18,4 +18,7 @@ class ReleveNoteController extends Controller
 
         return view('test',['data'=>$data]);
     }
+    public function collectionreleve(Request $request){
+
+    }
 }

@@ -62,6 +62,32 @@
                                     </select>
                                 </div>
 
+                                <div class="form-group col-lg-6">
+                                    <label for="sel1">Datepaeiment</label>
+                                    <input type="date" class="form-control"  name="datepaiement" >
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="sel1">Numeroderecue</label>
+                                    <input type="text" class="form-control"  name="numeroderecue" >
+                                </div>
+
+                                <div class="form-group col-lg-6">
+                                    <label for="sel1">Recue de  paiement</label>
+                                    <input type="text" class="form-control"  name="RecuePaiement" >
+                                </div>
+
+                                <div class="form-group col-lg-6">
+                                    <label for="sel1">Montant</label>
+                                    <input type="text" class="form-control"  name="montant">
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label for="sel1">Banque</label>
+                                    <input type="text" class="form-control"  name="Banque" >
+                                </div>
+
+
+
 
 
                             </div>

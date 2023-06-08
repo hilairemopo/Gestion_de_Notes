@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Response;
 class Etudiant extends Model
 {
     use HasFactory;
+    protected $table="etudiants";
     protected $fillable=['id',
             'matricule',
             'nom',
@@ -43,7 +44,7 @@ class Etudiant extends Model
                 "decision"=>NoteService::Decision($participation->notesur)
             ];
 
-            
+
 
         }
 

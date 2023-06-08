@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Inscription extends Model
 {
@@ -42,5 +43,27 @@ class Inscription extends Model
     }
     public function getAnneAcademiqueAttribute(){
         return $this->anneAcademique()->first();
+    }
+    public static function certificat($anneeId ,$matricule){
+
+
+        $etudiant= DB:: table('etudiants')->where('matricule' ,'=',$matricule)->first();
+
+        $inscription = DB::table('inscriptions')->where('etudiant_id','=',$etudiant->id)->where("anneacademique_id","=",$anneeId)->first();
+
+        $filiereEtudiant=DB::table('filieres')->find($inscription->filiere_id);
+        $niveauEtudiant=DB::table('niveaux')->find($inscription->niveau_id);
+        $anneeAcademique=DB::table('anneacademiques')->find($inscription->anneacademique_id);
+        $specialitefiliere=DB::table('specialites')->find($filiereEtudiant->specialite_id);
+
+
+
+
+        return['etudiant'=>$etudiant,
+                'niveau'=>$niveauEtudiant,
+            'filiere'=>$filiereEtudiant,
+            "anneeAcademique"=>$anneeAcademique,
+            'specialite'=>$specialitefiliere
+        ];
     }
 }
