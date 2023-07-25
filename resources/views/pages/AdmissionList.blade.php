@@ -20,14 +20,15 @@
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
-                        <form action="{{url('filiereReleve')}}" id="loginForm" name="frs" method="get">
+                        <form action="{{url('listeAdmis')}}" id="loginForm" name="frs" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="form-group col-lg-12">
                                     <label for="sel1">Filiere</label>
                                     <select class="form-control" id="sel1" name="filiere">
-                                        @foreach($filieres as $fil)
+                                        @foreach($filiere as $fil)
 
-                                            <option value="{{$fil->id}}"> {{$fil->descriptionfiliere}}</option>
+                                            <option value="{{json_encode($fil)}}"> {{$fil->descriptionfiliere}}</option>
                                         @endforeach
 
 
@@ -35,38 +36,32 @@
                                     <div class="form-group col-lg-12">
                                         <label>Niveau</label>
                                         <select class="form-control" id="sel1" name="niveau">
-                                            @foreach($niveaux as $niv)
-                                                <option value="{{$niv->id}}"> {{$niv->niveau}}</option>
+                                            @foreach($niveau as $niv)
+                                                <option value="{{json_encode($niv)}}"> {{$niv->niveau}}</option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group col-lg-6">
+                                    <div class="form-group col-lg-12">
                                         <label for="sel1">Annee Academique</label>
                                         <select class="form-control" id="sel1" name="annee">
                                             @foreach($annee as $a)
 
-                                                <option value="{{$a->id}}"> {{$a->annee}}</option>
+                                                <option value="{{ json_encode($a)}}"> {{$a->annee}}</option>
                                             @endforeach
 
 
                                         </select>
                                     </div>
-                                    <div class="form-group col-lg-6">
-                                        <label>Semestre</label>
-                                        <select class="form-control" id="sel1" name="semestre">
-                                            @foreach($semestre as $se)
-                                                <option>{{$se->semestre}}</option>
-                                            @endforeach
 
-
-                                        </select>
-
-                                    </div>
                                     <div class="text-center">
                                         <button class="btn btn-success loginbtn" type="submit" name="btn">Valider</button>
                                         <button class="btn btn-default">Annuler</button>
                                     </div>
+
+                                </div>
+                            </div>
                         </form>
+
 
                     </div>
                 </div>

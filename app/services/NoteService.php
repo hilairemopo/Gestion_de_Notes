@@ -52,21 +52,27 @@ class NoteService
         if($notesur>=50){
             return "CA";
         }
-        else if($notesur==49.50){
+        else if($notesur<=49.50 && $notesur>=34){
             return  "CANT";
         }
         else{
-            return "non capitalise";
+            return "NC";
         }
     }
     public static function calculMGPAndDecission($notes){
+
         $sum=0;
         $mgp=0;
+        $totalcredit=0;
         $decission="ECHEC";
+
         foreach($notes as $note){
-            $sum+=$note->participation->notesur;
+
+            $sum+=($note->participation?$note->participation->appends["noteFinale"]:0)*($note->matiere->nbrecredit);
+            $totalcredit+=$note->matiere->nbrecredit;
         }
-        $mgp=(($sum/100))/5;
+
+        $mgp=($sum)/($totalcredit);
 
         if($mgp<2){
             $decission="ECHEC";
@@ -81,7 +87,7 @@ class NoteService
         "decision"=>$decission
        ];
     }
-    public function creditCapitalise($notes){
+    public  static function creditCapitalise($notes){
 
         $cca=0;
         $totalCredit=0;
@@ -89,13 +95,23 @@ class NoteService
 
         foreach($notes as $note){
             $totalCredit+=$note->matiere->nbrecredit;
-        if($note->participation->notesur>=50){
+        if($note->participation?$note->participation->appends["noteFinale"]:0>=35){
 
                $cca+=$note->matiere->nbrecredit;
-               $pourcentage= round((($cca/$totalCredit)*100));
+
             }
 
     }
+        if($totalCredit==0)
+        {
+            $pourcentage=0;
+        }
+        else{
+
+        $pourcentage= round((($cca/$totalCredit)*100));
+
+        }
+
     return (object)[
         'cca'=>$cca,
         'totalCredit'=>$totalCredit,

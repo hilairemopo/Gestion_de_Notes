@@ -15,14 +15,18 @@ class CreateUedansFilieresTable extends Migration
     {
         Schema::create('uedans_filieres', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('niveau_id')->unsigned();
-            $table->foreign('niveau_id')->references('id')->on('niveaux');
+           /* $table->integer('niveau_id')->unsigned();
+            $table->foreign('niveau_id')->references('id')->on('niveaux');*/
+
             $table->integer('session_id')->unsigned();
             $table->foreign('session_id')->references('id')->on('sessions');
             $table->integer('filiere_id')->unsigned();
             $table->foreign('filiere_id')->references('id')->on('filieres');
+            $table->integer('niveau_id')->unsigned();
+            $table->foreign('niveau_id')->references('id')->on('niveaux');
             $table->integer('ue_id')->unsigned();
             $table->foreign('ue_id')->references('id')->on('ues');
+
             $table->timestamps();
         });
     }

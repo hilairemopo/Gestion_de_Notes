@@ -30,6 +30,7 @@ class EtudiantNote extends Model
         $inscription=$this->IsInscrit($this->id);
        return [
            "inscription"=>$inscription,
+
        ];
     }
 
@@ -37,5 +38,9 @@ class EtudiantNote extends Model
         return $this->inscriptions()
             ->where("anneacademique_id","=",Anneacademique::sessionEncours())
             ->where("etudiant_id","=",$id)->first();
+    }
+
+    public function calcunotesfinal(){
+
     }
 }

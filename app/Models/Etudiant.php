@@ -34,24 +34,30 @@ class Etudiant extends Model
         foreach ($ues as $key=>$ue){
 
 
-            $participation=DB::table("participations")->where("ue_id","=",$ue->ue_id)->where("etudiant_id","=",$etudiant->id)->first();
-            $m=DB::table("ues")->where("id","=",$ue->ue_id)->first();
-            $notes[$key]=(object)[
-                "ue"=>$ue,
-                "matiere"=>$m,
-                "participation"=>$participation,
-                "mention"=>NoteService::CalculMention($participation->notesur),
-                "decision"=>NoteService::Decision($participation->notesur)
-            ];
+            $noteE=NoteEtudiant::where("uedans_filieres_id","=",$ue->id)->where("inscription_id","=",$inscription->id)->first();
 
 
 
-        }
+                $m=DB::table("ues")->where("id","=",$ue->ue_id)->first();
+                $notes[$key]=(object)[
+                    "ue"=>$ue,
+                    "matiere"=>$m,
+                    "participation"=>$noteE,
+                    "mention"=>NoteService::CalculMention($noteE?$noteE->appends["noteFinale"]:0),
+                    "decision"=>NoteService::Decision($noteE?$noteE->appends["noteFinale"]:0),
+                ];
+            }
+
+
+
+
+
 
         return [
             'etudiant'=>$etudiant,
             'inscription'=>$inscription,
-            'notes'=>$notes,'mgp_decision'=>NoteService::calculMGPAndDecission($notes),
+            'notes'=>$notes,
+            'mgp_decision'=>NoteService::calculMGPAndDecission($notes),
             'credit'=>NoteService::creditCapitalise($notes)
     ];
 

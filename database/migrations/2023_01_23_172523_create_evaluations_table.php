@@ -17,7 +17,6 @@ class CreateEvaluationsTable extends Migration
             $table->increments('id');
 
             $table->string('dateExam');
-            $table->integer('notesur');
             $table->string('typeExam');
             $table->integer('session_id')->unsigned();
             $table->foreign('session_id')->references('id')->on('sessions');

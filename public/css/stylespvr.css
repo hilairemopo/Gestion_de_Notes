@@ -1,0 +1,78 @@
+    /* CSS to style the table and report card */
+    table {
+        border-collapse: collapse;
+        width: 200%;
+      }
+      body{
+          width: 28cm;
+          height: 29.7cm;
+          margin: 15cm;
+          margin-left: 15%;
+          margin-top: 2cm;
+      }
+      th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+  
+      th {
+        background-color: #fff;
+        font-size: larger;
+      }
+      .logo{
+          padding-left:17%;
+          padding-right:17%;
+          width: 9%;
+      }
+      /* CSS to style the second table */
+      .intro1{
+        padding-left: 23%;
+        text-align: justify;
+        font-size: 125%;
+      }
+      .intro2{
+        text-align: center;
+        padding-left: 32.5%;
+        font-size: 190%;
+      }
+      .intro3{
+        text-align: justify;
+        font-size: 125%;
+        padding-left: 45%;
+      }
+      .intro4{
+        text-align: justify;
+        font-size: 135%;
+        padding-left: 32%;
+      }
+      .rebGauche{
+          text-align: center;  
+          font-size: 125%;
+      }
+      .rebDroite{
+          text-align: center;
+          font-size: 125%;
+      }
+      .headerFlex{
+          display:flex;
+          align-items: center;
+      }
+      #tabs{
+          text-align: center;
+      }
+      #tabs1{
+        font: bold;
+        font-size: 20px;
+      }
+      #legend3{
+        width: 1700px;
+        font-weight: 200;
+        font-size: 100%;
+        padding-left: 30%;
+      }
+      #last{
+        padding-left: 30%;
+        text-align: center;
+        font-size: 25px;
+      }

@@ -8,7 +8,9 @@ use App\Models\EtudiantInscription;
 use App\Models\EtudiantNote;
 use App\Models\Evaluation;
 use App\Models\Inscription;
+use App\Models\NoteEtudiant;
 use App\Models\Paiement;
+use App\services\NoteService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Psy\Util\Json;
@@ -53,6 +55,7 @@ class forminsertController extends Controller
         return view('pages.forme',['année'=>$annee,'niveau'=>$niveau,'filiere'=>$filiere,'etudiant'=>$etudiant]);
     }
     public function crea(Request $request){
+        $students =EtudiantInscription::all();
 
         $paiement=new Paiement();
 
@@ -71,26 +74,94 @@ class forminsertController extends Controller
         $paiement->inscription_id=$inscription->id;
 
          $paiement->save();
-        return "envoyer avec succes";
+        return view('pages.insertion',["students"=>$students]);
     }
     public function insernote(){
 
-        $anneacademiques = Anneacademique::sessionEncours();
-        $evaluations=Evaluation::all();
-        return view('pages.formnotes',['anneacademiques'=>$anneacademiques,"evaluations"=>$evaluations]);
+        $annee= DB::table('anneacademiques')->get();
+        $filiere=DB::table('filieres')->get();
+        $niveau=DB::table('niveaux')->get();
+
+
+        return view('pages.formnotes',['anneacademiques'=>$annee,"filiere"=>$filiere,"niveau"=>$niveau]);
     }
 
 
     public function noteEtudiant(Request $request){
 
-        $matricule=$request->get("mat");
-        $etudiant=EtudiantNote::where("matricule","=",$matricule)->first();
+        $matricule=$request->get("matricule");
+        $filiere=$request->get("filiere");
 
-        dd($etudiant["appends"]["inscription"]);
+        $niveau=$request->get('niveau');
+        $annee=$request->get('anneacademiques');
 
+        $ueDansFiliere=DB::table("uedans_filieres")->where("filiere_id","=",$filiere)->pluck("ue_id");
+        $matieres=DB::table("ues")->whereIn("id",$ueDansFiliere)->get();
+
+            //$matiere=DB::table("ues")->whereIn("id","=",$ue)->pluck("codeue");
+
+
+        $etudiantID=DB::table('etudiants')->where('matricule',"=",$matricule)->pluck("id")->first();
+        $inscriptions=Inscription::where('etudiant_id',"=",$etudiantID)->first();
+
+
+       return view("pages.EtudiantNotes",["matieres"=>$matieres,"matricule"=>$inscriptions->id,"filiere"=>$filiere,"niveau"=>$niveau]);
+    }
+
+
+    public function saveNote(Request  $request){
+
+        $matiereFiliereId=DB::table("uedans_filieres")->where("filiere_id","=",$request->filiere)->where("ue_id","=",$request->matiere)->first()->id;
+
+
+        $noteExist=NoteEtudiant::where(["inscription_id"=>$request->inscription,"uedans_filieres_id"=>$matiereFiliereId])->first();
+        if($noteExist){
+
+
+            $noteExist["inscription_id"]=$request->inscription;
+            $noteExist["uedans_filieres_id"]=$matiereFiliereId;
+            if($request->compo=="cc"){
+                $noteExist["notecc"]=$request->note;
+            }else
+            if($request->compo=="tp"){
+                $noteExist["notetp"]=$request->note;
+            }
+            if($request->compo=="examen"){
+                $noteExist["notesn"]=$request->note;
+            }else
+
+            if($request->compo=="ratrappage"){
+                $noteExist["notesRattrapages"]=$request->note;
+            }
+
+
+            $noteExist->save();
+        }else{
+
+            $note=new NoteEtudiant();
+
+            $note["inscription_id"]=$request->inscription;
+            if($request->compo=="cc"){
+                $note["notecc"]=$request->note;
+            }
+            if($request->compo=="tp"){
+                $note["notetp"]=$request->note;
+            }
+            if($request->compo=="examen"){
+                $note["notesn"]=$request->note;
+            }
+
+            if($request->compo=="ratrappage"){
+                $note["notesRattrapages"]=$request->note;
+            }
+            $note["uedans_filieres_id"]=$matiereFiliereId;
+            $note->save();
+        }
 
 
 
     }
-}
 
+
+
+}

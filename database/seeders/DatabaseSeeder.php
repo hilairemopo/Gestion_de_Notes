@@ -23,13 +23,14 @@ class DatabaseSeeder extends Seeder
 
 
             AnneAcademiqueSeeder::class,
-            UeSeeder::class,
+
             SessionSeeder::class,
             UedansFiliereSeeder::class,
             EvaluationSeeder::class,
             InscriptionSeeder::class,
             PaiementSeeder::class,
             ParticipationSeeder::class,
+            NoteEtudiantSeeder::class,
 
 
 

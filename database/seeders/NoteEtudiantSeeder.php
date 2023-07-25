@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Faker\Factory as Faker;
-class ParticipationSeeder extends Seeder
+
+class NoteEtudiantSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,16 +20,19 @@ class ParticipationSeeder extends Seeder
             $eusId=DB::table('uedans_filieres')->where('filiere_id','=',$inscription->filiere_id)->get();
 
             foreach ($eusId as $key=>$item){
-                $ev=DB::table('evaluations')->where('session_id','=',$item->session_id
-                )->first();
 
-                if($ev){
-                    DB:: table('participations')->insert([
-                        'notesur'=>random_int(50,100),
-                        'etudiant_id'=>$inscription->id,
+
+                if($item){
+                    DB:: table('noteEtudiants')->insert([
+                     /*   'etudiant_id'=>$inscription->etudiant_id,
                         'ue_id'=>$item->ue_id,
-                        'evaluation_id'=>$ev->id,
-                        'session_id'=>$ev->session_id
+                        'session_id'=>$ev->session_id,*/
+                        'uedans_filieres_id'=>$item->id,
+                        'inscription_id'=>$inscription->id,
+                       'notecc'=>random_int(1,20),
+                      'notetp'=>random_int(1,20),
+                     'notesn'=>random_int(1,20),
+                    'notesRattrapages'=>random_int(20,40),
 
 
                     ]);
@@ -44,3 +47,5 @@ class ParticipationSeeder extends Seeder
 
     }
 }
+
+

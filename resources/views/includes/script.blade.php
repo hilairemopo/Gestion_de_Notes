@@ -37,3 +37,34 @@
 <script src="{{ asset('js/plugins.js')}}"></script>
 
 <script src="{{ asset('js/main.js')}}"></script>
+<script>
+
+       $(document).ready(function(){
+           $.ajaxSetup({
+               headers: {
+                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               }
+           });
+
+           $(".saveNote").on('change', function postinput(){
+
+                matchvalue = $(this).val(); // this.value
+
+               console.log(matchvalue);
+               console.log("matiere",$(this).attr("dataMatiereId"));
+
+               console.log("matricule",$("#matricule").val());
+               console.log("compo",$(this).attr("dataCompo"));
+              $.ajax({
+                  url:"{{ route('saveNote.post') }}",
+                   data: {matiere:$(this).attr("dataMatiereId"), note: matchvalue,inscription:$("#matricule").val(),filiere:$("#filiere").val(),niveau:$("#niveau").val(),compo:$(this).attr("dataCompo") },
+                   type: 'post'
+               }).done(function(responseData) {
+                   console.log('Done: ', responseData);
+               }).fail(function(error) {
+                   console.log('Failed',error);
+               });
+           });
+       });
+</script>
+

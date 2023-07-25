@@ -37,12 +37,11 @@ Route::get('/certificat
 });
 
 Route::get('/scoollcertificate',[\App\Http\Controllers\CertificatController::class,'certificate']);
-Route::get('/Pvrlist',[\App\Http\Controllers\ PvrController::class,'certificate']);
-Route::get('/AdmissionList',[\App\Http\Controllers\AdmissionListController::class,'certificate']);
-Route::get('/AchievementList',[\App\Http\Controllers\AchievmentController::class,'certificate']);
-
-
-
+Route::get('/Pvrlist',[\App\Http\Controllers\ PvrController::class,'pvrl']);
+Route::get('/AdmissionList',[\App\Http\Controllers\AdmissionListController::class,'listeForm']);
+Route::get('/AchievementList',[\App\Http\Controllers\AchievmentController::class,'Attestationform']);
+Route::post('/Pvrlis',[\App\Http\Controllers\PvrController::class,'pvrfile']);
+Route::post('/Achievement',[\App\Http\Controllers\AchievmentController::class,'Attestationfile']);
 Route::get('/releve1',[\App\Http\Controllers\ReLevController::class,'trait']);
 Route::get('/releve3',[\App\Http\Controllers\ReLevController::class,'traite']);
 
@@ -55,6 +54,10 @@ Route::get('/filiereReleve',[\App\Http\Controllers\ReLevController::class,'speci
 Route::get('/formulaire',[\App\Http\Controllers\forminsertController::class,'inser']);
 Route::post('/create',[\App\Http\Controllers\forminsertController::class,'create']);
 
+Route::post('/saveNote',[\App\Http\Controllers\forminsertController::class,'saveNote'])->name('saveNote.post');;
+
+
+
 Route::get('/insertion',[\App\Http\Controllers\forminsertController::class,'inscription']);
 Route::get('/form_inscription/{id}',[\App\Http\Controllers\forminsertController::class,'traiteForm']);
 //Route::get('/formInsertion',[\App\Http\Controllers\forminsertController::class,'traiteForm']);
@@ -62,4 +65,5 @@ Route::post('/created',[\App\Http\Controllers\forminsertController::class,'crea'
 Route::get('/InsertionNotes',[\App\Http\Controllers\forminsertController::class,'insernote']);
 
 Route::get('/java',[\App\Http\Controllers\Jasper::class,"compileExample"]);
-Route::post('/insert_note_etudiant',[\App\Http\Controllers\forminsertController::class,'noteEtudiant']);
+Route::post('/insertNoteEtudiant',[\App\Http\Controllers\forminsertController::class,'noteEtudiant']);
+Route::post('/listeAdmis',[\App\Http\Controllers\AdmissionListController::class,'liste']);

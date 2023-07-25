@@ -143,7 +143,7 @@
         <i class="intro1">BP/P.O Box 812 Yaoundé-CAMEROUN / Tel:222 234 496 / Email: diplome@facsciences.ut1.cm</i>
             <br><b class="intro2">RELEVE DE NOTES/TRANSCRIPT</b><br>
         <div class="intro3">
-          <b>N°:</b>00036/DTP/L1/FS/ICT/222021<br>
+          <b>N°:</b>{{$data['etudiant']->matricule}}/DTP/{{$data['inscription']->niveau->niveau}}/FS/ICT/222021<br>
         </div>
 
     </div>
@@ -191,9 +191,9 @@
             <tr>
 
                 <td id="tabs">{{$note->matiere?$note->matiere->codeue:"--"}}</td>
-                <td>{{$note->matiere?$note->matiere->intituleue:"--"}}/</td>
+                <td>{{$note->matiere?$note->matiere->intituleue:"--"}}</td>
                 <td>{{$note->matiere?$note->matiere->nbrecredit:"--"}}</td>
-                <td>{{ $note->participation->notesur}}</td>
+                <td>{{ $note->participation?$note->participation->appends["noteFinale"]:"pas de note"}}</td>
                 <td id="tabs">{{ $note->mention}}</td>
                 <td id="tabs">{{ $note->ue->session_id}}</td>
                 <td id="tabs">2021</td>
@@ -216,8 +216,8 @@
       </div>
 
       <div id="legend1">
-        Crédits Capitalisés : <b>{{$data['credit']->cca}} </b>/{{$data['credit']->totalCredit}} (<b>{{$data['credit']->pourcentage}} %</b>)<br>
-        Moyenne Générale Pondérée (MGP): <b>{{$data['mgp_decision']->mgp}}</b> /4 <br>
+        Crédits Capitalisés : <b> </b>{{$data['credit']->cca}}/{{$data['credit']->totalCredit}} (<b>{{$data['credit']->pourcentage}} %</b>)<br>
+        Moyenne Générale Pondérée (MGP): <b>{{$data['mgp_decision']->mgp}}</b> /2 <br>
         Décision : <b>{{$data['mgp_decision']->decision}}</b>
       </div>
     </div>

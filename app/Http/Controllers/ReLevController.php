@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DecisionMgp;
 use App\Models\Etudiant;
+use App\Models\Inscription;
 use App\Models\releve;
+use App\services\NoteService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -38,25 +41,59 @@ class ReLevController extends Controller
 
 
     public function specialteR(Request $request){
+
+
+        return view("pages.ReleveColection",['etudiants'=>self::calculReleveNoteEtudiant($request)]);
+
+
+    }
+
+    public static function calculReleveNoteEtudiant(Request $request){
         $tab=[];
         $tab['filiere']=$request->input("filiere");
         $tab['niveau']=$request->input("niveau");
         $tab['annee']=$request->input("annee");
         $tab['semestre']=$request->input("semestre");
-        $etudiantIds =DB::table("inscriptions")->where(['filiere_id'=>$tab['filiere'],'niveau_id'=>$tab['niveau']])->pluck("etudiant_id");
-        $etudiants=DB::table("etudiants")->whereIn('id',$etudiantIds)->pluck("matricule");
+        $inscriptions =Inscription::where(['filiere_id'=>$tab['filiere'],'niveau_id'=>$tab['niveau'],'anneacademique_id'=> $tab['annee']])->get();
 
         $etudiantsByReleve=[];
 
-        foreach ($etudiants as $key=>$etudiant){
-            $etudiantsByReleve[$key]=Etudiant::getReleve( $tab['annee'],$tab['semestre'],$etudiant);
+        foreach ($inscriptions as $key=>$inscription){
+            $etudiantsByReleve[$key]=Etudiant::getReleve( $tab['annee'],$tab['semestre'],$inscription->etudiant->matricule);
+
+
+           $isExistDecision= DB::table("decision_mgps")->where([
+                "inscription_id"=>$inscription->id,
+                "session_id"=>$tab['semestre'],
+
+
+                ])->first();
+
+           if($isExistDecision){
+
+               DecisionMgp::where("id","=",$isExistDecision->id)
+                   ->update(["decision"=>$etudiantsByReleve[$key]['mgp_decision']->decision,"mgp"=>$etudiantsByReleve[$key]['mgp_decision']->mgp]);
+
+
+           }else{
+               $decision=new DecisionMgp();
+
+               $decision->inscription_id= $inscription->id;
+
+               $decision->session_id=$tab['semestre'];
+               $decision->decision=$etudiantsByReleve[$key]['mgp_decision']->decision;
+               $decision->mgp=$etudiantsByReleve[$key]['mgp_decision']->mgp;
+            //  $decision->credit=$etudiantsByReleve[$key]['mgp_decision']->credit;
+             //  $decision->credit=0;
+               $decision->save();
+           }
+
+
         }
 
-
-
-        return view("pages.ReleveColection",['etudiants'=>$etudiantsByReleve]);
-
+        return $etudiantsByReleve;
 
     }
+
     //
 }

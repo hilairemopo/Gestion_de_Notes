@@ -20,40 +20,51 @@
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
-                        <form action="{{url('form_releve')}}" id="loginForm" name="frs" method="get">
+                        <form action="{{url('Achievement')}}" id="loginForm" name="frs" method="post">
+                            @csrf
                             <div class="row">
-                                <div class="form-group col-lg-12">
-                                    <label>Matricule</label>
-                                    <input class="form-control" name="mat">
+                                <div class="form-group col-lg-6">
+                                    <label for="sel1">Matricule</label>
+                                    <input type="text" class="form-control" value="" name="mat" >
                                 </div>
+
                                 <div class="form-group col-lg-6">
                                     <label for="sel1">Annee Academique</label>
-                                    <select class="form-control" id="sel1" name="annee">
-                                        @foreach($annee as $a)
+                                    <select class="form-control" id="sel1" name="anneacademique_id">
+                                        @foreach($année as $an)
 
-                                            <option value="{{$a->id}}"> {{$a->annee}}</option>
+                                            <option value="{{$an->id}}">{{$an->annee}}</option>
+
                                         @endforeach
-
 
                                     </select>
                                 </div>
                                 <div class="form-group col-lg-6">
-                                    <label>Semestre</label>
-                                    <select class="form-control" id="sel1" name="semestre">
-                                        @foreach($semestre as $se)
-                                            <option>{{$se->semestre}}</option>
+                                    <label>Niveau</label>
+                                    <select class="form-control" id="sel1" name="niveau_id">
+
+                                        @foreach($niveau as $nv)
+
+                                            <option value="{{$nv->id}}">{{$nv->niveau}}</option>
+
                                         @endforeach
-
-
                                     </select>
                                 </div>
+                                <div class="form-group col-lg-6">
+                                    <label>filiere</label>
+                                    <select class="form-control" id="sel1" name="filiere_id">
 
+                                        @foreach($filiere as $fil)
 
+                                            <option value="{{$fil->id}}">{{$fil->intitulefiliere}}</option>
 
-                            </div>
+                                        @endforeach
+                                    </select>
+                                </div>
                             <div class="text-center">
                                 <button class="btn btn-success loginbtn" type="submit" name="btn">Valider</button>
-                                <button class="btn btn-default">Annuler</button>
+                                <button class="btn btn-default" >Annuler</button>
+                            </div>
                             </div>
                         </form>
 

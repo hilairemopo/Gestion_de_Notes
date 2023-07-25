@@ -17,25 +17,25 @@ class UeSeeder extends Seeder
     {$faker = Faker::create();
         DB::table('ues')->insert([
             'codeue'=>'ICT303',
-        'intituleue'=>'reseau',
-            'nbrecredit'=>5,
+        'intituleue'=>'Data Communication and Security',
+            'nbrecredit'=>6,
             'typeue'=>'complementaire',
-            'cathegorie'=>'proffessionel'
+            'cathegorie'=>'fundamental'
 
         ]);
         $faker = Faker::create();
         DB::table('ues')->insert([
-            'codeue'=>'ICT204',
-        'intituleue'=>'Algorithme',
-            'nbrecredit'=>6,
+            'codeue'=>'ICT304',
+        'intituleue'=>'Software Testing and Deployement',
+            'nbrecredit'=>3,
             'typeue'=>'optionel',
-            'cathegorie'=>'proffessionel'
+            'cathegorie'=>'fundamental'
 
         ]);
         $faker = Faker::create();
         DB::table('ues')->insert([
             'codeue'=>'ICT301',
-            'intituleue'=>'Architecture',
+            'intituleue'=>'Software Architectures and Design',
             'nbrecredit'=>6,
             'typeue'=>'optionel',
             'cathegorie'=>'proffessionel'
@@ -44,16 +44,16 @@ class UeSeeder extends Seeder
         $faker = Faker::create();
         DB::table('ues')->insert([
             'codeue'=>'ICT302',
-            'intituleue'=>'securite',
-            'nbrecredit'=>6,
+            'intituleue'=>'Introduction to Artificial Intelligence',
+            'nbrecredit'=>4,
             'typeue'=>'optionel',
-            'cathegorie'=>'proffessionel'
+            'cathegorie'=>'fundamental'
 
         ]);
         $faker = Faker::create();
         DB::table('ues')->insert([
-            'codeue'=>'ICT202',
-            'intituleue'=>'mysql',
+            'codeue'=>'ICT308',
+            'intituleue'=>'j2e',
             'nbrecredit'=>6,
             'typeue'=>'optionel',
             'cathegorie'=>'proffessionel'
@@ -62,7 +62,7 @@ class UeSeeder extends Seeder
         $faker = Faker::create();
         DB::table('ues')->insert([
             'codeue'=>'ICT303',
-            'intituleue'=>'RESEAU AVANCE',
+            'intituleue'=>'English3',
             'nbrecredit'=>6,
             'typeue'=>'optionel',
             'cathegorie'=>'proffessionel'
@@ -71,7 +71,7 @@ class UeSeeder extends Seeder
         $faker = Faker::create();
         DB::table('ues')->insert([
             'codeue'=>'ICT304',
-            'intituleue'=>'UML',
+            'intituleue'=>'base de donnees',
             'nbrecredit'=>6,
             'typeue'=>'optionel',
             'cathegorie'=>'proffessionel'
@@ -95,23 +95,42 @@ class UeSeeder extends Seeder
             'cathegorie'=>'proffessionel'
 
         ]);
-        $faker = Faker::create();
+          $faker = Faker::create();
         DB::table('ues')->insert([
             'codeue'=>'ICT307',
-            'intituleue'=>'PROJET SOUTENANCE',
+            'intituleue'=>'Computer Systems Engineering',
             'nbrecredit'=>6,
+            'typeue'=>'Obligatoire',
+            'cathegorie'=>'proffessionel'
+
+      ]);
+        $faker = Faker::create();
+        DB::table('ues')->insert([
+            'codeue'=>'ICT300',
+            'intituleue'=>'Internship',
+            'nbrecredit'=>12,
             'typeue'=>'optionel',
             'cathegorie'=>'proffessionel'
 
         ]);
         $faker = Faker::create();
         DB::table('ues')->insert([
-            'codeue'=>'ICT205',
-            'intituleue'=>'HTML CSS',
-            'nbrecredit'=>6,
+            'codeue'=>'ICT317',
+            'intituleue'=>'Information System',
+            'nbrecredit'=>4,
+            'typeue'=>'optionel',
+            'cathegorie'=>'proffessionel'
+
+        ]);
+        $faker = Faker::create();
+        DB::table('ues')->insert([
+            'codeue'=>'ICT318',
+            'intituleue'=>'Java Entreprise Edition ',
+            'nbrecredit'=>4,
             'typeue'=>'optionel',
             'cathegorie'=>'proffessionel'
 
         ]);
     }
+
 }

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class Inscription extends Model
 {
     use HasFactory;
-    protected $appends=['paiement','niveau','filiere','anneAcademique'];
+    protected $appends=['paiement','niveau','filiere','anneAcademique','etudiant'];
 
     protected $fillable = [
         'id',
@@ -31,6 +31,9 @@ class Inscription extends Model
     public function filiere(){
         return $this->belongsTo(Filiere::class);
     }
+    public function etudiant(){
+        return $this->belongsTo(Etudiant::class);
+    }
 
     public function getPaiementAttribute(){
         return $this->paiement()->first();
@@ -44,6 +47,10 @@ class Inscription extends Model
     public function getAnneAcademiqueAttribute(){
         return $this->anneAcademique()->first();
     }
+    public function getEtudiantAttribute(){
+        return $this->etudiant()->first();
+    }
+
     public static function certificat($anneeId ,$matricule){
 
 

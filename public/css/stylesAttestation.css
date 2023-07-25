@@ -1,0 +1,143 @@
+
+      body{
+         image-resolution: 100%;
+          width: 29.7cm;
+          height: 22cm;
+          margin: 2cm;
+          margin-top: 2cm;  
+          margin-left: 10%; 
+      }
+      .small-table {
+        border-collapse: collapse;
+        width: 40%;
+      }
+      table {
+        border-collapse: collapse;
+        width: 20%;
+      }
+       td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        border-top: 1px solid black;
+        
+        background-color: #f2f2f2;
+      }
+      #tabs{
+        text-align: center;
+    }
+      .demo-wrap{
+      opacity: 0.09;
+      position: absolute;
+      width: 125%;
+      margin-top: "0%";
+      left: 0;
+      right: 0;
+      padding-top: 0%;
+      }
+      .logo{
+          padding-left:5%;
+          padding-right: 3%;
+          width: 5%;
+      }
+
+      .intro{
+        padding-left: 21.9%;
+        font-size: 150%;
+      }
+      .intro1{
+        padding-left: 5%;
+        font-size: 150%;
+      }
+      .intro2{
+        padding-left: 20%;
+        font-size: 150%;
+      }
+      .intro3{
+        margin-left: 48%;
+        font-size: 120%;
+      }
+      .intro4{
+        margin-left: 40%;
+        font-size: 120%;
+      }
+      .header{
+        font-size: 101%;
+      }
+      .rebGauche{
+          text-align: center;  
+          font-size: 125%;
+      }
+      .rebDroite{
+          text-align: center;
+          font-size: 125%;
+      }
+      .headerFlex{
+          display:flex;
+          align-items: center;
+      }
+      #Matricule{
+  
+          padding-left: 29%;
+      }
+      #Matricule1{
+          padding-left: 56%;
+      }
+      #Matricule2{
+        padding-left: 5%;
+    }
+      #Matricule3{
+          padding-left: 38.4%;
+      }
+      #Matricule4{
+          padding-left: 6.5%;
+      }
+      #Matricule5{
+          padding-left: 18%;
+      }
+      #Matricule6{
+        padding-left: 40.5%;
+    }
+    
+      #Matricule7{
+        font-size: 150%;
+          padding-left: 8%;
+      }
+      #Matricule8{
+        padding-left: 13%;
+    }
+
+      #legend{
+        display: flex;
+        align-items: center;
+        margin-left: 10%;
+        margin-top: 5%;
+        padding-bottom: 5%;
+      }
+      #legend2{
+        width: 400px;
+      }
+      #legend3{
+        width: 1700px;
+      }
+      #last{
+        padding-left: 10%;
+        
+        font-size: large;
+      }
+      #last1{
+        text-align: left;
+      }
+      #double{
+        display: flexbox; 
+        position: relative;
+        justify-content: center;
+      }
+      #borderLeft{
+        border-left: 1px solid black;;
+      }
+      #borderRight{
+        border-Right: 1px solid black;
+      }
