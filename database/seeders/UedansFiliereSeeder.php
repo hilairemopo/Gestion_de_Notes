@@ -20,7 +20,7 @@ class UedansFiliereSeeder extends Seeder
         //$filiere = DB::table('filieres')->get()->pluck('id');
 
                 foreach ($ues as $key=> $ue){
-                    if ($key<7){
+                    if ($key<8){
                         DB::table('uedans_filieres')->insert([
                             // 'niveau_id' => 3,
                             'session_id' => 5,
@@ -50,12 +50,6 @@ class UedansFiliereSeeder extends Seeder
                     ]);*/
                 }
 
-        DB::table('uedans_filieres')->insert([
-            'niveau_id' => 3,
-            'session_id' => 5,
-            'filiere_id' => 1,
-            'ue_id'=>9,
-        ]);
 
    /**
     *      DB::table('uedans_filieres')->insert([

@@ -30,7 +30,7 @@ public function Attestationfile(Request $request){
     $sumgp=DB::table("decision_mgps")->where("inscription_id","=",$etudiantId)->sum('mgp');
 
 
-    //  dd($etudiantId);
+   //dd($inscription);
 return view('pages.AttestationFile',['inscription'=>$inscription,'decision'=>$sumgp]);
 }
 

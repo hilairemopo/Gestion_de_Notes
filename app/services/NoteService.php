@@ -66,10 +66,48 @@ class NoteService
         $totalcredit=0;
         $decission="ECHEC";
 
-        foreach($notes as $note){
+        foreach($notes as $item){
+            $note=$item->participation->appends["noteFinale"]?$item->participation->appends["noteFinale"]:0;
+            if($note>=80){
+                $sum+=4*($item->matiere->nbrecredit);
+            }
+            elseif ($note<=79 &&  $note>=75){
+                $sum+=3.70*($item->matiere->nbrecredit);
+            }
+            elseif ($note<=74 &&  $note>=70){
+                $sum+=3.30*($item->matiere->nbrecredit);
+            }
+            elseif ($note<=69 &&  $note>=65){
+                $sum+=3.0*($item->matiere->nbrecredit);
+            }
+            elseif ($note<=60 &&  $note>=64){
+                $sum+=2.70*($item->matiere->nbrecredit);
+            }
+            elseif ($note<=59 &&  $note>=55){
+                $sum+=2.30*($item->matiere->nbrecredit);
+            }
+            elseif ($note<=54 && $note>=50){
+                $sum+=2*($item->matiere->nbrecredit);
+            }
+            elseif ($note<=49 && $note>=45){
+                $sum+=1.70*($item->matiere->nbrecredit);
+            }
+            elseif ($note<=44 && $note>=40){
+                $sum+=1.30*($item->matiere->nbrecredit);
+            }
+            elseif ($note<=39 && $note>=35){
+                $sum+=1*($item->matiere->nbrecredit);
+            }
+            elseif ($note<=34 && $note>=30){
+                $sum+=0*($item->matiere->nbrecredit);
+            }
+            else {
+                $sum+=0*($item->matiere->nbrecredit);
+            }
 
-            $sum+=($note->participation?$note->participation->appends["noteFinale"]:0)*($note->matiere->nbrecredit);
-            $totalcredit+=$note->matiere->nbrecredit;
+
+
+            $totalcredit+=$item->matiere->nbrecredit;
         }
 
         $mgp=($sum)/($totalcredit);
@@ -95,7 +133,8 @@ class NoteService
 
         foreach($notes as $note){
             $totalCredit+=$note->matiere->nbrecredit;
-        if($note->participation?$note->participation->appends["noteFinale"]:0>=35){
+
+        if(($note->participation?$note->participation->appends["noteFinale"]:0)>=35){
 
                $cca+=$note->matiere->nbrecredit;
 

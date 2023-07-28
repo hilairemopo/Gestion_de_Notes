@@ -198,7 +198,7 @@
                     <td id="tabs">{{$note->matiere?$note->matiere->codeue:"--"}}</td>
                     <td>{{$note->matiere?$note->matiere->intituleue:"--"}}/</td>
                     <td>{{$note->matiere?$note->matiere->nbrecredit:"--"}}</td>
-                    <td>{{$note->participation->appends["noteFinale"]}}</td>
+                    <td>{{ $note->participation?$note->participation->appends["noteFinale"]:"pas de note"}}</td>
                     <td id="tabs">{{ $note->mention}}</td>
                     <td id="tabs">{{ $note->ue->session_id}}</td>
                     <td id="tabs">2021</td>

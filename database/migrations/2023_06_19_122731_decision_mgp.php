@@ -31,7 +31,7 @@ class DecisionMgp extends Migration
             $table->foreign('session_id')->references('id')->on('sessions');
             $table->double('mgp');
             $table->string('decision');
-          //  $table->string('credit');
+            $table->integer('credit');
 
 
 

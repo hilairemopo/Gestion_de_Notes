@@ -106,10 +106,10 @@
             <td id="tabs1">0</td>
             <td id="tabs1">{{ $countInscription }}</td>
             <td id="tabs1">{{$nomberAdmins}}</td>
-            <td id="tabs1">{{$nomberAdmins/ $countInscription }}</td>
+            <td id="tabs1">{{($nomberAdmins/ $countInscription)*100}}</td>
             <td id="tabs1">0</td>
             <td id="tabs1">{{$countInscription-$nomberAdmins}}</td>
-            <td id="tabs1">{{($countInscription-$nomberAdmins)/$countInscription}}</td>
+            <td id="tabs1">{{(($countInscription-$nomberAdmins)/$countInscription)*100}}</td>
 
         </tr>
     </table>

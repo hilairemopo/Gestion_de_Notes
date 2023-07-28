@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EtudiantNote;
 use App\Models\Inscription;
 use App\Models\NoteEtudiant;
-use App\services\NoteService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use PhpParser\Node\Expr\Cast\Object_;
 
 class PvrController extends Controller
 {
@@ -39,16 +36,17 @@ class PvrController extends Controller
 
 
         $inscriptions=Inscription::where('filiere_id','=',$filiere->id)->where("niveau_id","=",$niveau->id)->where("anneacademique_id","=",$annee->id)->get();
-     //$countinscription = 0;
+     $countinscription = 0;
         $etudiants=[];
 
 
         $countinscription = 0;
         foreach ($inscriptions as  $key=> $inscription)
-      // $countinscription++;
+
         {
+            $countinscription++;
           //  $note=NoteEtudiant::notefinal();
-            $decision=DB::table("decision_mgps")->where("inscription_id","=",$inscription->id)->get();
+
             $etu=DB::table("etudiants")->find($inscription->etudiant_id);
 
             $etudiants[$key]=(object)[
@@ -68,8 +66,8 @@ class PvrController extends Controller
 
 
     return view('pages.pvrFile',['etudiants'=>$etudiants,
-            'decision'=>$decision,
-      //  "countinscription"=>$countinscription,
+
+       "countinscription"=>$countinscription,
            // 'notes'=>$notes,
             'filiere'=>$filiere,
             'niveau'=>$niveau,
@@ -88,11 +86,19 @@ public function calculNoteFinalMatiereBySemestreByEtudiant($semestres,$inscripti
             $matieres=DB::table("uedans_filieres")->where("filiere_id","=",$filiere)-> get();
             foreach ($matieres as $key=>$matiere){
 
+                $note=NoteEtudiant::where("uedans_filieres_id","=",$matiere->id)->where("inscription_id","=",$inscriptionId)->first();
+                if($note){
+                    $noteF=$note->appends['noteFinale']."\n/S".$this->semestreSession($matiere->session_id)."/".$annee;
+                }else{
+                    $noteF="";
+                }
+
+
                 $noteFinaleBySemestreByMatiere[$key]=(object)[
                     "matiereId"=>$matiere->ue_id,
                     "etudiantId"=>$etudiantId,
 
-                    "noteFinal"=>NoteEtudiant::where("uedans_filieres_id","=",$matiere->id)->where("inscription_id","=",$inscriptionId)->first()->appends['noteFinale']."\n/S".$this->semestreSession($matiere->session_id)."/".$annee
+                    "noteFinal"=>$noteF
                 ];
 
             }
@@ -115,11 +121,13 @@ public static function     getNoteMatiere($matiereId,$etudiant){
 public static  function  getDecisionBysemestreById($inscriptionId,$countSemestres)
 {
    $mgp= DB::table("decision_mgps")->where("inscription_id", "=", $inscriptionId)->sum("mgp");
+    $credit= DB::table("decision_mgps")->where("inscription_id", "=", $inscriptionId)->sum('credit');
 
 
     return (object)[
         "mgp"=>$mgp,
-        "decision"=> $mgp>=2?"Admis":"EChec"
+        "decision"=> $mgp>=2?"Admis":"ECHEC",
+        "credit"=>$credit
     ];
 
 

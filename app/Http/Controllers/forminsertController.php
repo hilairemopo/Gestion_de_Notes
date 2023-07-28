@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Anneacademique;
 use App\Models\Etudiant;
 use App\Models\EtudiantInscription;
-use App\Models\EtudiantNote;
-use App\Models\Evaluation;
 use App\Models\Inscription;
 use App\Models\NoteEtudiant;
 use App\Models\Paiement;
-use App\services\NoteService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Psy\Util\Json;
 
 class forminsertController extends Controller
 {

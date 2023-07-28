@@ -319,7 +319,7 @@
     <p>NB: Il n'est délivré qu'un seul exemplaire de relevé de notes. Le titulaire peut établir et faire certifier des copies conformes.</p>
    <p>Only one transcript shall be delivered. It is the owner's interest to make certified true copies.</p>
    <p id="last1">1- Original</p>
-    <p> <i>&copy;Copyrigth GICA - Imprimé &middot; le {{date('d/m/Y') }}</i></p>
+    <p> <i>&copy;Copyrigth GICA - Imprimé &middot; le {{date('d/m/Y') }} </i></p>
    </div>
   </footer>
 </body>

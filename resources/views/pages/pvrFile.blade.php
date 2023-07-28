@@ -37,9 +37,12 @@
         <b class="intro2">PROCES VERBAL RECAPITULATIF</b> <br> <br>
         <div class="intro1">{{$filiere->intitulefiliere}}- {{ $filiere->descriptionfiliere}}<br>
         </div>
-        <br><div class="intro3">SPECIALITE : {{$filiere->specialite_id}}</div> <br>
+        <br>
+        <div class="intro3">SPECIALITE : {{$filiere->specialite_id}}</div>
+        <br>
         <div class="intro4">GRADE :{{$niveau->niveau}} SEMESTRE : Tous Année académique : {{$annee->annee}}</div>
-    </div> <br>
+    </div>
+    <br>
     </div>
 </header>
 <section>
@@ -50,7 +53,7 @@
             <th id="tabs">MATRICULE</th>
             <th id="tabs">NIVEAU</th>
             @foreach($matieres as $matiere)
-            <th id="tabs">{{$matiere->intituleue}}</th>
+                <th id="tabs">{{$matiere->intituleue}}</th>
             @endforeach
             <th id="tabs">Crd</th>
             <th id="tabs">Crd</th>
@@ -66,7 +69,6 @@
             @foreach($matieres as $matiere)
                 <td id="tabs">{{$matiere->nbrecredit}}</td>
 
-
             @endforeach
 
 
@@ -79,33 +81,30 @@
 
         </tr>
         @foreach($etudiants as $etudiant)
-        <tr>
+            <tr>
 
-            <td id="tabs">{{$etudiant->etudiant->id}}</td>
-                <td id="tabs">{{$etudiant->etudiant->nom}}{{$etudiant->etudiant->prenom}} <br> </td>
+                <td id="tabs">{{$etudiant->etudiant->id}}</td>
+                <td id="tabs">{{$etudiant->etudiant->nom}}{{$etudiant->etudiant->prenom}} <br></td>
                 <td id="tabs">{{$etudiant->etudiant->matricule}}</td>
-            <td>{{$niveau->niveau}}</td>
+                <td>{{$niveau->niveau}}</td>
 
 
-            @foreach($matieres as $matiere)
-                <td>
-               {{\App\Http\Controllers\PvrController::getNoteMatiere($matiere->id,$etudiant)}}
-            </td>
+                @foreach($matieres as $matiere)
+                    <td>
+                        {{\App\Http\Controllers\PvrController::getNoteMatiere($matiere->id,$etudiant)}}
+                    </td>
                 @endforeach
 
-             <td> </td>
-            <td> {{$nbrecredit}}</td>
-            <td> </td>
-            <td>  {{$etudiant->decision->mgp}}</td>
-            <td>  {{$etudiant->decision->decision}}</td>
+                <td> {{$etudiant->decision->credit}}</td>
+                <td> {{$nbrecredit}}</td>
+                <td>{{(($etudiant->decision->credit)/($nbrecredit))*100}}</td>
+                <td>  {{$etudiant->decision->mgp}}</td>
+                <td>  {{$etudiant->decision->decision}}</td>
 
 
-        </tr>
+            </tr>
 
         @endforeach
-
-
-
 
 
     </table>
@@ -137,13 +136,13 @@
             <td id="tabs1">{{$niveau->niveau}} </td>
             <td id="tabs1">{{$annee->annee}}</td>
             <td id="tabs1">0</td>
-            <td id="tabs1"> 11</td>
+            <td id="tabs1"> {{$countinscription}}</td>
             <td id="tabs1">{{$nomberAdmins}}</td>
-            <td id="tabs1">78,57</td>
+            <td id="tabs1">{{(($nomberAdmins)/($countinscription))*100}}</td>
             <td id="tabs1">0</td>
             <td id="tabs1">0.000</td>
-            <td id="tabs1">18</td>
-            <td id="tabs1">21.42</td>
+            <td id="tabs1">{{$countinscription-$nomberAdmins}}</td>
+            <td id="tabs1"></td>
         </tr>
     </table>
 </footer>

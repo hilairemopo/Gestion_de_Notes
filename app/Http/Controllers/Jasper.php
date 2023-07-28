@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use PHPJasper\PHPJasper;
 
 class Jasper extends Controller

@@ -48,7 +48,7 @@
                 <b class="intro2"><h1>DIPLOME DE LICENCE  PROFESSIONNELLE</h1></b>
             </div>
             <div class="intro4">
-                <b>N°: <u>__________________________</u></b><br>
+                <b>N°: <u>_____{{  $inscription->etudiant->matricule}}/{{$inscription->niveau->niveau}}FS/ICT/222021</u></b><br>
             </div>
         </header>
         <section>
@@ -58,13 +58,13 @@
                     <br><i id="Matricule7">The Dean of the Faculty of Science of the University of Yaounde I, undersigned</i></p>
 
                     <div id="last">
-                        <b>Vu le procès-verbal des délibérations du jury en date du <u>____juiellet ____________________________________</u></b>
+                        <b>Vu le procès-verbal des délibérations du jury en date du <u>____{{date('d/m/Y') }}__</u></b>
                         <br><b><i>Mindful of the offiicial report of the deliberations of the jury dated</i></b><br>
                         <b> <br> atteste que:</b>
                         <b> <br> certify that</i></b>
                     </div><br>
                     <div>
-                        <b>M. Mlle <u>____{{$inscription->etudiant->nom}}__</u></b>
+                        <b>M. Mlle <u>____{{$inscription->etudiant->nom}}_</u></b>
                         <b id="Matricule5">Mle <u>_{{  $inscription->etudiant->matricule}}</u> </b>
                         <br><i>Mr/Mrs/Miss</i><i id="Matricule6"><b>Reg N°</b></i></p>
 

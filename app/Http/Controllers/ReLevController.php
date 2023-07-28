@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\DecisionMgp;
 use App\Models\Etudiant;
 use App\Models\Inscription;
-use App\Models\releve;
-use App\services\NoteService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -72,7 +70,7 @@ class ReLevController extends Controller
            if($isExistDecision){
 
                DecisionMgp::where("id","=",$isExistDecision->id)
-                   ->update(["decision"=>$etudiantsByReleve[$key]['mgp_decision']->decision,"mgp"=>$etudiantsByReleve[$key]['mgp_decision']->mgp]);
+                   ->update(["decision"=>$etudiantsByReleve[$key]['mgp_decision']->decision,"mgp"=>$etudiantsByReleve[$key]['mgp_decision']->mgp,"credit"=>$etudiantsByReleve[$key]['credit']->cca]);
 
 
            }else{
@@ -83,7 +81,7 @@ class ReLevController extends Controller
                $decision->session_id=$tab['semestre'];
                $decision->decision=$etudiantsByReleve[$key]['mgp_decision']->decision;
                $decision->mgp=$etudiantsByReleve[$key]['mgp_decision']->mgp;
-            //  $decision->credit=$etudiantsByReleve[$key]['mgp_decision']->credit;
+             $decision->credit=$etudiantsByReleve[$key]['credit']->cca;
              //  $decision->credit=0;
                $decision->save();
            }

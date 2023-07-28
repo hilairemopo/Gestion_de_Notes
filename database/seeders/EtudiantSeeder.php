@@ -17,12 +17,12 @@ class EtudiantSeeder extends Seeder
 
     {
         $fake = Faker::create();
-        
-      for($i=0;$i<=10;$i++){
+
+      for($i=0;$i<=15;$i++){
         DB:: table('etudiants')->insert([
             'matricule'=>'0000'.$i,
             'nom'=> $fake->lastName,
-            
+
             'prenom'=>$fake->firstName,
 
             'datenaiss'=>$fake->date,
